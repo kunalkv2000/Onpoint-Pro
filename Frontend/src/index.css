@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-bg-primary: #ffffff;
+        --color-bg-secondary: #f8fafc;
+        --color-bg-tertiary: #f1f5f9;
+        --color-text-primary: #0f172a;
+        --color-text-secondary: #475569;
+        --color-text-muted: #94a3b8;
+        --color-border: #e2e8f0;
+        --color-border-hover: #cbd5e1;
+    }
+
+    .dark {
+        --color-bg-primary: #18181b;
+        --color-bg-secondary: #09090b;
+        --color-bg-tertiary: #27272a;
+        --color-text-primary: #fafafa;
+        --color-text-secondary: #d4d4d8;
+        --color-text-muted: #71717a;
+        --color-border: #3f3f46;
+        --color-border-hover: #52525b;
+    }
+
+    body {
+        background-color: var(--color-bg-secondary);
+        color: var(--color-text-primary);
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #94a3b8 transparent;
+    }
+
+    *::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #94a3b8;
+        border-radius: 20px;
+    }
+}
+
+@layer components {
+    .glass-card {
+        @apply bg-white/80 dark:bg-surface-800/80 backdrop-blur-xl border border-surface-200/60 dark:border-surface-700/60 rounded-2xl shadow-soft;
+    }
+
+    .btn-primary {
+        @apply bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-xl px-5 py-2.5 transition-all duration-200 hover:shadow-glow active:scale-[0.98];
+    }
+
+    .btn-ghost {
+        @apply bg-transparent hover:bg-surface-100 dark:hover:bg-surface-700 text-surface-600 dark:text-surface-300 font-medium rounded-xl px-5 py-2.5 transition-all duration-200;
+    }
+
+    .input-field {
+        @apply w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-surface-900 dark:text-surface-100 placeholder:text-surface-400 dark:placeholder:text-surface-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all duration-200;
+    }
+}
